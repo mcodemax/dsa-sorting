@@ -23,8 +23,32 @@ let arr6 = [1,2]
 
 merge(arr5,arr6) // [1,2,3,4,5]
 */
+function merge(arr1, arr2) {
+	const retArr = [];
+  let [i,j] = [0,0];
 
-function merge() {}
+	while(i < arr1.length && j < arr2.length){
+  	if(arr1[i] < arr2[j]){
+      	retArr.push(arr1[i]);
+        i++;
+      }else{
+        retArr.push(arr2[j]);
+        j++;
+      }
+  }
+  
+  while(i < arr1.length){
+  	retArr.push(arr1[i])
+    i++;
+  }
+  
+  while(j < arr2.length){
+  	retArr.push(arr1[j])
+    j++;
+  }
+  
+  return retArr;
+}
 
 function mergeSort() {}
 
