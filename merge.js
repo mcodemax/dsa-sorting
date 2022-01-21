@@ -43,13 +43,21 @@ function merge(arr1, arr2) {
   }
   
   while(j < arr2.length){
-  	retArr.push(arr1[j])
+  	retArr.push(arr2[j])
     j++;
   }
   
   return retArr;
 }
 
-function mergeSort() {}
+function mergeSort(arr) {
+	//split arrays in to half until they are size 0 or 1
+	if(arr.length <= 1) return arr;
+
+	const mid = Math.floor(arr.length / 2)
+	const leftArr = mergeSort(arr.slice(0, mid));
+	const rightArr = mergeSort(arr.slice(mid));
+	return merge(leftArr, rightArr)
+}
 
 module.exports = { merge, mergeSort};
